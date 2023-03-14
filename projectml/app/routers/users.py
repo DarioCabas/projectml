@@ -3,7 +3,7 @@ from typing import Union
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
-router = APIRouter()
+router = APIRouter(prefix="/users",tags=["users"], responses={404: {"message": "No encontrado"}})
 
 
 class Item(BaseModel):
@@ -24,14 +24,14 @@ async def usersjson():
             {"name": "Dario", "lastname":"Cabascango", "age": 24, "country": "Ecuador"},
             {"name": "Dario", "lastname":"Cabascango", "age": 24, "country": "Ecuador"}]
 
-@router.get("/users")
+@router.get("/")
 async def users():
     return users_list
 
 
 #Path es como obligatorio
 
-@router.get("/users/{id}")
+@router.get("/{id}")
 async def user(id: int):
     return search_user(id)
 
