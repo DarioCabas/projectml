@@ -10,6 +10,7 @@ python = "^3.10"
 fastapi = {extras = ["full"], version = "^0.93.0"}
 black = "^23.1.0"
 uvicorn = {extras = ["standard"], version = "^0.21.0"}
+python-multipart = "^0.0.6"
 
 
 [build-system]
